@@ -1,6 +1,6 @@
 # Return-File-With-Sockets
 
-Implementation of sockets to receive a filepath from the client, access
-   it, and send a copy back to the client.
-
-Made in C and BASH
+Implementation of sockets to send a filepath to a server, receive a copy
+   of the file from the file from the server, and store it in an output file.
+   
+Made in C and BASH.
