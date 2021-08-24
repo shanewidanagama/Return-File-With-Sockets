@@ -1,0 +1,21 @@
+###################################################################
+#
+#   Name: analyze_ip.sh
+#
+#   Written by: Shane Damien Widanagama
+#
+#   #Date written: 1/23/2020
+#
+#   Purpose: To compile a list of the ten ip addresses with the most authentication errors into the file top_ten_ip.txt
+#
+#   usage:  ./analyze_ip.sh
+#           Then, open top_ten_ip.txt with nano
+#
+###################################################################
+
+#!/usr/bin/bash
+
+# Searches for the IP addresses of sources  failed authentication attempts, counts their occurences, sorts them in order of most to least common, and stores the
+# ten most common addresses into a text file
+grep -e "authentication failure" /home/COIS/3380/secure* | grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' | sort -n | uniq -c | sort -nr | head -n 10 > top_ten_ip.txt 
+
